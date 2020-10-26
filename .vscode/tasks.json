@@ -1,0 +1,42 @@
+{
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "g++.exe build active file",
+            "command": "D:\\ProgramData\\mingw64_posix\\bin\\g++.exe",
+            "args": [
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}\\build\\${fileBasenameNoExtension}.exe",
+
+                "-static",
+                "-static-libstdc++",
+                // "-pthread",
+                
+                "-ggdb3",   // 生成和调试有关的信息
+                "-Wall",    // 开启额外警告
+                "-static-libgcc",   // 静态链接
+                "-std=c++17",       // 使用c++17标准
+                "-finput-charset=UTF-8",    //输入编译器文本编码 默认为UTF-8
+                // "-fexec-charset=GB18030",   //输出exe文件的编码
+                "-D _USE_MATH_DEFINES"
+            ],
+            "options": {
+                "cwd": "D:\\ProgramData\\mingw64_posix\\bin"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+
+            "presentation": {
+                "echo": true,
+                "reveal": "always", // 在“终端”中显示编译信息的策略，可以为always，silent，never
+                 "focus": false,
+                 "panel": "shared" // 不同的文件的编译信息共享一个终端面板
+            },
+        }
+    ],
+    "version": "2.0.0"
+}
